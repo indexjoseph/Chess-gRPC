@@ -3,8 +3,8 @@ syntax = "proto3"
 // This file defines the Move components, which are necessary to handle moves
 // over the wire in a chess game.
 message Move {
-
-	// The initial position of the piece that is         // being moved.
+    
+	// The initial position of the piece that is being moved.
 	optional Position from_position = 1;
     
     // The final position of the from piece
@@ -13,17 +13,17 @@ message Move {
     // The piece that is being moved.
     optional Piece from_piece = 3;
     
-    // The piece that is occupying the final             // position.
+    // The piece that is occupying the final position.
     // (This piece could possibly be empty)
     optional Piece to_piece = 4;
 }
 
 message Position {
 
-	// Rank enumeration to present the position's         // rank.
+	// Rank enumeration to present the position's rank.
 	optional Rank rank = 1;
     
-	// File enumeration to present the position's         // file.
+	// File enumeration to present the position's file.
 	optional File file = 2;
         
 }
@@ -33,15 +33,14 @@ message Piece {
     // The type of chess piece
     optional ChessPieceType chessPieceType = 1;
     
-    // Amount of times the designated piece has           // moved
+    // Amount of times the designated piece has moved
     optional int32 moveCount = 2;
     
     // Strategy for the pieces movement 
     optional MovementStrategy moveStrat = 3;
 }
 
-// Models the Rank also known as the row for the
-// chess board.
+// Models the Rank also known as the row for the chess board.
 enum Rank {
 	R1 = 1;
     R2 = 2;
@@ -53,8 +52,7 @@ enum Rank {
     R8 = 8;
 }
 
-// Models the File also known as the column for the
-// chess board.
+// Models the File also known as the column for the chess board.
 enum File {
     A = 1;
     B = 2; 

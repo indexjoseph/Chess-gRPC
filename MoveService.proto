@@ -8,10 +8,10 @@ message MoveRequest {
     optional google.protobuf.Timestamp time_set = 3;
 }
 
-// Move response to the original move request, 
-// returns true if the move was sent to the opposing // client and false if the move was not sent.
-// If the move was not sent the send status will
-// contain a message on why it was not.
+// Move response to the original move request, returns true if the move was 
+// sent to the opposing client and false if the move was not sent.
+// If the move was not sent the send status will contain a message on why it 
+// was not.
 message MoveResponse {
 	optional bool move_sent = 1;
     optional string send_status = 2;
@@ -24,13 +24,12 @@ message UpdateBoardRequest {
 }
 
 // Resoponse to the UpdateBoardRequest, returns true
-// if the move was sucessfully made and false         // otherwise.
+// if the move was sucessfully made and false otherwise.
 message UpdateBoardResponse {
 	optional bool move_made = 1;
 }
 
-// Move Service for sending and receive moves
-// made by the opponent.
+// Move Service for sending and receive moves made by the opponent.
 service MoveService {
 
 	rpc SendMove(MoveRequest) 
