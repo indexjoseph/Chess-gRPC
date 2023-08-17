@@ -1,0 +1,43 @@
+syntax = "proto3"
+
+
+// Validated move being made and needing to be sent // to the opposing client.
+message MoveRequest {
+	optional Move move = 1;
+    optional string player_name = 2;
+    optional google.protobuf.Timestamp time_set = 3;
+}
+
+// Move response to the original move request, 
+// returns true if the move was sent to the opposing // client and false if the move was not sent.
+// If the move was not sent the send status will
+// contain a message on why it was not.
+message MoveResponse {
+	optional bool move_sent = 1;
+    optional string send_status = 2;
+}
+
+// Request to update the opposing client's board with
+// the new move from the initial client.
+message UpdateBoardRequest {
+	optional Move validated_move;
+}
+
+// Resoponse to the UpdateBoardRequest, returns true
+// if the move was sucessfully made and false         // otherwise.
+message UpdateBoardResponse {
+	optional bool move_made = 1;
+}
+
+// Move Service for sending and receive moves
+// made by the opponent.
+service MoveService {
+
+	rpc SendMove(MoveRequest) 
+    	returns (MoveResponse) {}
+    
+    rpc UpdateBoard(UpdateBoardRequest)
+    	returns (UpdateBoardResponse) {}
+    
+    rpc UndoMove() returns ()
+}
