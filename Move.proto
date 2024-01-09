@@ -4,8 +4,8 @@ syntax = "proto3"
 // over the wire in a chess game.
 message Move {
     
-	// The initial position of the piece that is being moved.
-	optional Position from_position = 1;
+    // The initial position of the piece that is being moved.
+    optional Position from_position = 1;
     
     // The final position of the from piece
     optional Position to_position = 2;
@@ -20,11 +20,11 @@ message Move {
 
 message Position {
 
-	// Rank enumeration to present the position's rank.
-	optional Rank rank = 1;
-    
-	// File enumeration to present the position's file.
-	optional File file = 2;
+    // Rank enumeration to present the position's rank.
+    optional Rank rank = 1;
+     
+    // File enumeration to present the position's file.
+    optional File file = 2;
         
 }
 
@@ -42,7 +42,7 @@ message Piece {
 
 // Models the Rank also known as the row for the chess board.
 enum Rank {
-	R1 = 1;
+    R1 = 1;
     R2 = 2;
     R3 = 3;
     R4 = 4;
@@ -66,7 +66,7 @@ enum File {
 
 // Represents the type of chess piece.
 enum ChessPieceType {
-	KING = 1;
+    KING = 1;
     QUEEN = 2;
     ROOK = 3;
     BISHOP = 4;
