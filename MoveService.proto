@@ -3,7 +3,7 @@ syntax = "proto3"
 
 // Validated move being made and needing to be sent // to the opposing client.
 message MoveRequest {
-	optional Move move = 1;
+    optional Move move = 1;
     optional string player_name = 2;
     optional google.protobuf.Timestamp time_set = 3;
 }
@@ -32,7 +32,7 @@ message UpdateBoardResponse {
 // Move Service for sending and receive moves made by the opponent.
 service MoveService {
 
-	rpc SendMove(MoveRequest) 
+    rpc SendMove(MoveRequest) 
     	returns (MoveResponse) {}
     
     rpc UpdateBoard(UpdateBoardRequest)
